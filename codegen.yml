@@ -1,0 +1,33 @@
+overwrite: true
+schema:
+  - ${REACT_APP_GQL_CHAT_SCHEMA}
+  - ${REACT_APP_GQL_HISTORY_SCHEMA}
+  - ${REACT_APP_GQL_COGNITO_SCHEMA}
+  - ${REACT_APP_GQL_PROFILE_SCHEMA}
+  - ${REACT_APP_GQL_LOCALITY_SCHEMA}
+  - ${REACT_APP_GQL_SEARCH_SCHEMA}
+  - ${REACT_APP_GQL_CONNECTION_SCHEMA}
+  - ${REACT_APP_GQL_POST_SCHEMA}
+  - ${REACT_APP_GQL_POSTBEHAVIOR_SCHEMA}
+  - ${REACT_APP_GQL_CMS_SCHEMA}
+documents: "src/_graphql/**/*.gql"
+generates:
+  src/types/serverTypes/index.ts:
+    plugins:
+      - typescript
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: "types/serverTypes"
+    plugins:
+      - typescript-operations
+      - typescript-rtk-query:
+          importBaseApiFrom: "src/_apis/replaceApi"
+          exportHooks: true
+    config:
+      addDocBlocks: false
+      exportFragmentSpreadSubTypes: true
+      exportHooks: true
+      skipTypename: true
+      useTypeImports: true

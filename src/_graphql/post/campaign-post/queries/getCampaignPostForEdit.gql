@@ -1,0 +1,28 @@
+query getFundRaisingPostForEdit($filter: GenericFilterRequestFundRaisingPostReqType!) {
+  getFundRaisingPost(filter: $filter) {
+    listDto {
+      items {
+        id
+        body
+        title
+        ownerUserId
+        audience
+        status
+        placeId
+        placeDescription
+        target
+        deadline
+        coverImageUrl
+        placeMainText
+        placeSecondaryText
+        tags {
+          id
+          title
+        }
+        createdDateTime
+        category
+      }
+      count
+    }
+  }
+}

@@ -1,0 +1,29 @@
+query getRecently($filter: GenericFilterRequestLastSeenItemReqInputType) {
+  lastSeenQueryHandler(filter: $filter) {
+    listDto {
+      items {
+        people {
+          itemId
+          fullName
+          avatarUrl
+        }
+        ngos {
+          itemId
+          fullName
+          avatarUrl
+        }
+        posts {
+          itemId
+        }
+        fundRaisingPosts {
+          itemId
+        }
+        hashtags {
+          itemId
+          title
+        }
+      }
+      count
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "auth.forgetPassword.continue": "Continue",
+  "auth.forgetPassword.resend": "Resend",
+  "auth.forgetPassword.validEmailMessage": "Please use a valid email address.",
+  "general.save": "Save",
+  "help.helpCenter": "Help center"
+}
